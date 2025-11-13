@@ -1,6 +1,13 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
+
+  /// Anteriormente isso era:
+
+  /// provider = "postgresql"
+  ///url = env("DATABASE_URL")
+
+  ///que recebia o valor (segundo o readme.md) DATABASE_URL="postgresql://postgres@localhost:5432/clinica_db". Alterei para sqlite pela necessidade de rodar localmente, visto que eu não possuo credenciais do banco de dados do postgresql. Se necessário, voltar para as variaveis que estavam comentadas acima.
 }
 
 generator client {

@@ -1,3 +1,4 @@
+// Projeto\sistema-produtos-backend\src\routes\categoria.routes.ts
 import { Router } from "express";
 import {
   createCategoria,

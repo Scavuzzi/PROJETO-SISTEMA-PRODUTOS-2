@@ -1,4 +1,4 @@
-// src/routes/usuario.routes.ts
+// Projeto\sistema-produtos-backend\src\routes\usuario.routes.ts
 import { Router } from "express";
 import {
   createUsuario,

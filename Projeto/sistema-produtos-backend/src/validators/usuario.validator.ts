@@ -1,3 +1,4 @@
+// Projeto\sistema-produtos-backend\src\validators\usuario.validator.ts
 import { z } from "zod";
 
 export const usuarioSchema = z.object({

@@ -1,3 +1,4 @@
+// Projeto\sistema-produtos-backend\src\controllers\categoria.controller.ts
 import { PrismaClient } from "@prisma/client";
 import type { Request, Response } from "express";
 import { categoriaSchema } from "../validators/categoria.validator.js";

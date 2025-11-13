@@ -1,3 +1,4 @@
+// Projeto\sistema-produtos-backend\src\controllers\produto.controller.ts
 import { PrismaClient } from "@prisma/client";
 import type { Request, Response } from "express";
 import { produtoSchema } from "../validators/produto.validator.js";
@@ -37,7 +38,12 @@ export const createProduto = async (req: Request, res: Response) => {
     });
     res.status(201).json(produto);
   } catch (error: any) {
+    // 💡 A CORREÇÃO: Expor o erro do Prisma no console do terminal
+    console.error("ERRO DO PRISMA/VALIDAÇÃO:", error); 
+    
+    // Deixe esta linha para retornar o erro 400 se for Zod
     if (error.errors) return res.status(400).json({ errors: error.errors });
+    
     res.status(500).json({ error: "Erro ao criar produto" });
   }
 };

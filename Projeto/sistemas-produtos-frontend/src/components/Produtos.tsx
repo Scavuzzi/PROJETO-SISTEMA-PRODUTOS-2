@@ -140,6 +140,7 @@ const Produtos: React.FC = () => {
             variant="contained"
             color="primary"
             className="uppercase font-bold"
+            onClick={() => navigate("/cadastroProduto")}
           >
             Novo Produto
           </Button>

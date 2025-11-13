@@ -1,4 +1,4 @@
-// src/controllers/usuario.controller.ts
+// Projeto\sistema-produtos-backend\src\controllers\usuario.controller.ts
 import type { Request, Response } from "express";
 import { prisma } from "../prisma.js";
 import { z } from "zod";

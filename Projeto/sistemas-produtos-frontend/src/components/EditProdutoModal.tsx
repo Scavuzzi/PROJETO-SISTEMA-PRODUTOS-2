@@ -29,7 +29,7 @@ const EditarProdutoModal: React.FC<EditarProdutoModalProps> = ({
       nome: "",
       preco: 0,
       estoque: 0,
-      CategoriaID: 0,
+      categoriaId: 0,
       Categoria: "",
     }
   );

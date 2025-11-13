@@ -4,7 +4,7 @@ export interface Produto {
   nome: string;
   preco: number;
   estoque: number;
-  CategoriaID: number;
+  categoriaId: number;
   Categoria: string;
 }
 

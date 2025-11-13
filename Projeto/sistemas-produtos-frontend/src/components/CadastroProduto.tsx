@@ -27,8 +27,7 @@ const initialState = {
   nome: "",
   preco: 0,
   estoque: 0,
-  CategoriaID: 0,
-  Categoria: "", 
+  categoriaId: 0
 };
 
 const CadastroProduto: React.FC = () => {
@@ -55,12 +54,15 @@ const CadastroProduto: React.FC = () => {
     setIsSaving(true);
 
     try {
-      // Converte os campos de string para número ANTES de enviar
+      // 1. TRATAMENTO DO PREÇO: Garante que a string use PONTO como decimal
+      const precoTratado = String(formData.preco).replace(',', '.');
+
+      // 2. CONSTRUÇÃO DO OBJETO FINAL (Sem o spread ...formData, apenas campos limpos)
       const dadosParaAPI = {
-        ...formData,
-        preco: Number(formData.preco),
+        nome: formData.nome,
+        preco: Number(precoTratado),
         estoque: Number(formData.estoque),
-        CategoriaID: Number(formData.CategoriaID),
+        categoriaId: Number(formData.categoriaId),
       };
 
       // Chama o serviço da sua API
@@ -156,10 +158,10 @@ const CadastroProduto: React.FC = () => {
             InputProps={{ inputProps: { min: 0 } }} // Apenas inteiros
           />
           <TextField
-            name="CategoriaID"
+            name="categoriaId"
             label="ID da Categoria"
             type="number"
-            value={formData.CategoriaID}
+            value={formData.categoriaId}
             onChange={handleChange}
             fullWidth
             required

@@ -1,3 +1,4 @@
+// Projeto\sistema-produtos-backend\src\config\swagger.ts
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import type { Express } from "express";

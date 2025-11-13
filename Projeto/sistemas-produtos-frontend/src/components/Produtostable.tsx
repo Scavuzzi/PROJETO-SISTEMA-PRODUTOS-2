@@ -33,10 +33,9 @@ const produtosTable: React.FC<ProdutosTableProps> = ({
           <TableRow className="bg-gray-800">
             {[
               "Nome",
-              "Email",
-              "Telefone",
-              "CPF",
-              "Data de Nascimento",
+              "Preço",
+              "Estoque",
+              "ID da Categoria",
               "Ações",
             ].map((header) => (
               <TableCell
@@ -64,9 +63,9 @@ const produtosTable: React.FC<ProdutosTableProps> = ({
             produtos.map((produto) => (
               <TableRow key={produto.id} hover className="hover:bg-blue-50">
                 <TableCell align="center">{produto.nome}</TableCell>
-                <TableCell align="center">{produto.preco}</TableCell>
+                <TableCell align="center">{produto.preco} R$</TableCell>
                 <TableCell align="center">{produto.estoque}</TableCell>
-                <TableCell align="center">{produto.Categoria}</TableCell>
+                <TableCell align="center">{produto.categoriaId}</TableCell>
                 <TableCell align="center">
                   <div className="flex justify-center gap-2">
                     <Tooltip title="Editar">
