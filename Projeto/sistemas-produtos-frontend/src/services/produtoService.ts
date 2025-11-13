@@ -21,7 +21,7 @@ export const updateProduto = async (
 };
 
 export const createProduto = async (dados: NovoProduto): Promise<Produto> => {
-  const res = await axios.post<Produto>(`${API_BASE}/produtos`, dados); // Minúsculo
+  const res = await axios.post<Produto>(`${API_BASE}/produtos`, dados); 
   return res.data;
 };
 export default {
