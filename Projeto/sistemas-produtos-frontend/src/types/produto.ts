@@ -5,7 +5,6 @@ export interface Produto {
   preco: number;
   estoque: number;
   categoriaId: number;
-  Categoria: string;
 }
 
 export type NovoProduto = Omit<Produto, "id">;
