@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             <Box display="flex" justifyContent="center" mb={1}>
               <Avatar
                 src="https://cdn-icons-png.flaticon.com/512/7858/7858230.png"
-                alt="Clínica Médica"
+                alt="SuperMario"
                 sx={{
                   width: AVATAR_SIZE,
                   height: AVATAR_SIZE,
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
               />
             </Box>
             <Typography variant="h5" component="h1" fontWeight={600} mb={2}>
-              Clínica Médica
+              Super Mario
             </Typography>
             <Button
               variant="contained"
@@ -36,17 +36,18 @@ const Home: React.FC = () => {
               fullWidth
               sx={{ mb: 2 }}
               type="button"
-              onClick={() => navigate("/pacientes")}
+              onClick={() => navigate("./Protudos")}
             >
-              Pacientes
+            Lista de produtos
             </Button>
             <Button
               variant="contained"
               color="secondary"
               fullWidth
               type="button"
+              onClick={() => navigate("/Cadastro de Produtos")}
             >
-              Consultas
+             Cadastro de produtos
             </Button>
           </Box>
         </Paper>

@@ -1,7 +1,8 @@
-import type { produto } from './produto.ts';
+import type { Produto } from './produto.ts';
 
-export interface categoria {
+export interface Categoria {
   id: number;
   nome: string;
-  produtos: produto[]; 
+  produtos: Produto[]; 
 }
+

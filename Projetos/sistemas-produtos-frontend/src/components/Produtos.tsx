@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import type { Paciente } from "../types/paciente";
-import { getPacientes, deletePaciente } from "../services/pacienteService";
+import type { Produto } from "../types/produto";
+import { getProdutos, deleteProduto } from "../services/produtoService";
 import {
   Box,
   Paper,
@@ -12,8 +12,8 @@ import {
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
-import PacientesTable from "./PacientesTable";
-import EditarPacienteModal from "./EditPacienteModal";
+import ProdutosTable from "./Produtostable"; 
+import EditarProdutoModal from "./EditProdutoModal";
 
 type SnackbarState = {
   open: boolean;
@@ -21,29 +21,29 @@ type SnackbarState = {
   severity: "success" | "error" | "info" | "warning";
 };
 
-const Pacientes: React.FC = () => {
+const Produtos: React.FC = () => {
   const navigate = useNavigate();
 
-  const [pacientes, setPacientes] = useState<Paciente[]>([]);
+  const [produtos, setProdutos] = useState<Produto[]>([]);
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [snackbar, setSnackbar] = useState<SnackbarState>({
     open: false,
     message: "",
     severity: "info",
   });
-  const [pacienteEditando, setPacienteEditando] = useState<Paciente | null>(
+  const [ProdutoEditando, setProdutoEditando] = useState<Produto | null>(
     null
   );
 
   useEffect(() => {
     (async () => {
       try {
-        const data = await getPacientes();
-        setPacientes(data);
+        const data = await getProdutos();
+        setProdutos(data);
       } catch (e) {
         setSnackbar({
           open: true,
-          message: "Erro ao buscar pacientes.",
+          message: "Erro ao buscar Produtos.",
           severity: "error",
         });
         console.error(e);
@@ -55,17 +55,17 @@ const Pacientes: React.FC = () => {
     setDeletingId(id);
 
     try {
-      await deletePaciente(id);
-      setPacientes((prev) => prev.filter((p) => p.id !== id));
+      await deleteProduto(id);
+      setProdutos((prev) => prev.filter((p) => p.id !== id));
       setSnackbar({
         open: true,
-        message: "Paciente removido com sucesso.",
+        message: "Produto removido com sucesso.",
         severity: "success",
       });
     } catch (e) {
       setSnackbar({
         open: true,
-        message: "Erro ao deletar paciente.",
+        message: "Erro ao deletar Produto.",
         severity: "error",
       });
       console.error(e);
@@ -74,21 +74,21 @@ const Pacientes: React.FC = () => {
     }
   };
 
-  const handleOpenEditModal = (paciente: Paciente) => {
-    setPacienteEditando(paciente);
+  const handleOpenEditModal = (Produto: Produto) => {
+    setProdutoEditando(Produto);
   };
 
   const handleCloseEditModal = () => {
-    setPacienteEditando(null);
+    setProdutoEditando(null);
   };
 
-  const handleSavePaciente = (pacienteAtualizado: Paciente) => {
-    setPacientes((prev) =>
-      prev.map((p) => (p.id === pacienteAtualizado.id ? pacienteAtualizado : p))
+  const handleSaveProduto = (ProdutoAtualizado: Produto) => {
+    setProdutos((prev) =>
+      prev.map((p) => (p.id === ProdutoAtualizado.id ? ProdutoAtualizado : p))
     );
     setSnackbar({
       open: true,
-      message: "Paciente atualizado com sucesso.",
+      message: "Produto atualizado com sucesso.",
       severity: "success",
     });
   };
@@ -125,11 +125,11 @@ const Pacientes: React.FC = () => {
         </IconButton>
 
         <Typography variant="h5" fontWeight={600} mb={3} textAlign="center">
-          Lista de Pacientes
+          Lista de Produtos
         </Typography>
 
-        <PacientesTable
-          pacientes={pacientes}
+        <ProdutosTable
+          produtos={Produtos}
           deletingId={deletingId}
           onDelete={handleDelete}
           onEdit={handleOpenEditModal}
@@ -141,7 +141,7 @@ const Pacientes: React.FC = () => {
             color="primary"
             className="uppercase font-bold"
           >
-            Novo Paciente
+            Novo Produto
           </Button>
         </Box>
 
@@ -161,14 +161,14 @@ const Pacientes: React.FC = () => {
         </Snackbar>
       </Paper>
 
-      <EditarPacienteModal
-        open={pacienteEditando !== null}
-        paciente={pacienteEditando}
+      <EditarProdutoModal
+        open={ProdutoEditando !== null}
+        Produto={ProdutoEditando}
         onClose={handleCloseEditModal}
-        onSave={handleSavePaciente}
+        onSave={handleSaveProduto}
       />
     </Box>
   );
 };
 
-export default Pacientes;
+export default Produtos;
