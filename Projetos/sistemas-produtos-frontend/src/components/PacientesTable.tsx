@@ -1,5 +1,5 @@
 import React from "react";
-import type { Paciente } from "../types/pacientes";
+import type { Paciente } from "../types/paciente";
 import {
   Table,
   TableBody,

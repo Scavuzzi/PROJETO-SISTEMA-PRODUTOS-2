@@ -13,7 +13,7 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import PacientesTable from "./PacientesTable";
-import EditarPacienteModal from "./EditarPacienteModal";
+import EditarPacienteModal from "./EditPacienteModal";
 
 type SnackbarState = {
   open: boolean;

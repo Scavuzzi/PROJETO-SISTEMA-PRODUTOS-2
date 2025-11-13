@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import type { Paciente } from "../types/pacientes";
-import { updatePaciente } from "../services/pacienteService";
+import type { Paciente } from "../types/paciente";
+import { updatePaciente } from "../services/pacienteService"; 
 import {
   Dialog,
   DialogTitle,
